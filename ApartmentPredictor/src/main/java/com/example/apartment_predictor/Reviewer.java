@@ -13,8 +13,8 @@ public class Reviewer extends Person {
     public Reviewer() {}
 
     //2.2 Constructor with all fields (person fields and reviewer fields)
-    public Reviewer(String id, String name, String email, int age, String reviewerType, int experienceYears, double averageRating) {
-        super(id, name, email, age);
+    public Reviewer(String name, String email, int age, String reviewerType, int experienceYears, double averageRating) {
+        super(name, email, age);
         this.reviewerType = reviewerType;
         this.experienceYears = experienceYears;
         this.averageRating = averageRating;
@@ -45,6 +45,7 @@ public class Reviewer extends Person {
         this.averageRating = averageRating;
     }
 
+    //4. method toString (toString of Person (super.toString) + toString of Reviewer)
     @Override
     public String toString() {
         return "Reviewer{" +
