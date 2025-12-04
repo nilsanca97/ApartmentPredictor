@@ -16,8 +16,8 @@ public class Owner extends Person {
     public Owner(){}
 
     //2.2 Constructor with all fields (person fields and reviewer fields)
-    public Owner(String id, String name, String email, int age, boolean isActive, boolean isBusiness, String idLegalOwner, LocalDate registrationDate, int qtyDaysAsOwner) {
-        super(id, name, email, age);
+    public Owner(String name, String email, int age, boolean isActive, boolean isBusiness, String idLegalOwner, LocalDate registrationDate, int qtyDaysAsOwner) {
+        super(name, email, age);
         this.isActive = isActive;
         this.isBusiness = isBusiness;
         this.idLegalOwner = idLegalOwner;
