@@ -1,8 +1,10 @@
 package com.example.apartment_predictor;
 
+import com.example.apartment_predictor.utils.GenerateUUID;
+
 public abstract class Person {
 
-    //1. ATRIBUTES (FIELDS)
+    //1. ATTRIBUTES (FIELDS)
     private String id;
     private String name;
     private String email;
@@ -14,7 +16,7 @@ public abstract class Person {
 
     // 2.2 Constructor with all fields
     public Person(String name, String email, int age) {
-        //this.id = id;
+        this.id = GenerateUUID.generateFourDigitUuid();
         this.name = name;
         this.email = email;
         this.age = age;
