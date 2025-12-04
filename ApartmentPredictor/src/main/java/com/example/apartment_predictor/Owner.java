@@ -2,24 +2,22 @@ package com.example.apartment_predictor;
 
 import java.time.LocalDate;
 
-public class Owner {
+public class Owner extends Person {
 
-    private  String id;
-    private String name;
-    private String email;
-    private int age;
+    //1. ATRIBUTES (FIELDS)
     private boolean isActive;
     private boolean isBusiness;
     private String idLegalOwner;
     private LocalDate registrationDate;
     private int qtyDaysAsOwner;
 
+    //2. CONSTRUCTOR
+    //2.1 default constructor
     public Owner(){}
 
-    public Owner(String name, String email, int age, boolean isActive, boolean isBusiness, String idLegalOwner, LocalDate registrationDate, int qtyDaysAsOwner) {
-        this.name = name;
-        this.email = email;
-        this.age = age;
+    //2.2 Constructor with all fields (person fields and reviewer fields)
+    public Owner(String id, String name, String email, int age, boolean isActive, boolean isBusiness, String idLegalOwner, LocalDate registrationDate, int qtyDaysAsOwner) {
+        super(id, name, email, age);
         this.isActive = isActive;
         this.isBusiness = isBusiness;
         this.idLegalOwner = idLegalOwner;
@@ -27,38 +25,7 @@ public class Owner {
         this.qtyDaysAsOwner = qtyDaysAsOwner;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
+    // 3. Getters & setters
     public boolean isActive() {
         return isActive;
     }
@@ -99,18 +66,17 @@ public class Owner {
         this.qtyDaysAsOwner = qtyDaysAsOwner;
     }
 
+    // 4. method toString (toString of Person + toString of Owner)
     @Override
     public String toString() {
-        return "Owner{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", age=" + age +
-                ", isActive=" + isActive +
+        return "Owner{ " +
+                super.toString() +
+                "isActive=" + isActive +
                 ", isBusiness=" + isBusiness +
                 ", idLegalOwner='" + idLegalOwner + '\'' +
                 ", registrationDate=" + registrationDate +
                 ", qtyDaysAsOwner=" + qtyDaysAsOwner +
-                '}';
+                " }";
     }
+
 }
