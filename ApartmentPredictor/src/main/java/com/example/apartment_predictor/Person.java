@@ -13,8 +13,8 @@ public abstract class Person {
     public Person() {}
 
     // 2.2 Constructor with all fields
-    public Person(String id, String name, String email, int age) {
-        this.id = id;
+    public Person(String name, String email, int age) {
+        //this.id = id;
         this.name = name;
         this.email = email;
         this.age = age;
