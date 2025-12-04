@@ -12,11 +12,11 @@ public class Review {
     private String apartmentId;
     private String reviewerId;
 
-    //2. CONTRUCTOR
-    // 2.1 default contructor
+    //2. CONSTRUCTOR
+    // 2.1 default constructor
     public Review() {}
 
-    // 2.2 Contructor with all fields
+    // 2.2 Constructor with all fields
     public Review(String id, int rating, String apartmendId, String reviewerId) {
 
         this.id= id;
