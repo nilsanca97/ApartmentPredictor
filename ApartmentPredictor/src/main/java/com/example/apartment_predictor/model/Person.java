@@ -1,4 +1,4 @@
-package com.example.apartment_predictor;
+package com.example.apartment_predictor.model;
 
 import com.example.apartment_predictor.utils.GenerateUUID;
 
