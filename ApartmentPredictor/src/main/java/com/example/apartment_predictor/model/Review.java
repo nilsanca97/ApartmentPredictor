@@ -1,10 +1,15 @@
-package com.example.apartment_predictor;
+package com.example.apartment_predictor.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 
+@Entity
 public class Review {
 
     //1. ATRIBUTES (FIELDS)
+    @Id
     private String id;
     private String reviewText;
     private int rating;
