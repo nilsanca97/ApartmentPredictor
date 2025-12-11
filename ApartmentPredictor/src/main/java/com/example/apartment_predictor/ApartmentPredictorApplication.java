@@ -1,6 +1,8 @@
 package com.example.apartment_predictor;
 
 import com.example.apartment_predictor.model.Apartment;
+import com.example.apartment_predictor.repository.ApartmentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,8 +10,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ApartmentPredictorApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ApartmentPredictorApplication.class, args);
+    @Autowired
+    private ApartmentRepository apartmentRepository;
+
+
+    public static void main(String[] args) {
+        SpringApplication.run(ApartmentPredictorApplication.class, args);
 	}
 
 	@Override
@@ -72,15 +78,29 @@ public class ApartmentPredictorApplication implements CommandLineRunner {
 		);
 		
 		// Display the created apartments
-		System.out.println("\n=== Created Apartments ===");
-		System.out.println("Apartment 1: " + apartment1);
-		System.out.println("\nApartment 2: " + apartment2);
-		System.out.println("\nApartment 3: " + apartment3);
+		//System.out.println("\n=== Created Apartments ===");
+		//System.out.println("Apartment 1: " + apartment1);
+		//System.out.println("\nApartment 2: " + apartment2);
+		//System.out.println("\nApartment 3: " + apartment3);
 		
-		System.out.println("\n=== Apartment Details ===");
-		printApartmentDetails(apartment1, "Luxury Apartment");
-		printApartmentDetails(apartment2, "Family Apartment");
-		printApartmentDetails(apartment3, "Budget Apartment");
+		//System.out.println("\n=== Apartment Details ===");
+		//printApartmentDetails(apartment1, "Luxury Apartment");
+		//printApartmentDetails(apartment2, "Family Apartment");
+		//printApartmentDetails(apartment3, "Budget Apartment");
+
+        apartmentRepository.save(apartment1);
+        apartmentRepository.save(apartment2);
+        apartmentRepository.save(apartment3);
+
+        int index = 0;
+        System.out.println("\n=== Apartments in the Database ===");
+        for (Apartment apartment : apartmentRepository.findAll()){
+            index++;
+            System.out.println("#" + index);
+            System.out.println(apartment);
+        }
+
+        //apartmentRepository.findAll().forEach(System.out::println);
 	}
 	
 	private void printApartmentDetails(Apartment apartment, String description) {
