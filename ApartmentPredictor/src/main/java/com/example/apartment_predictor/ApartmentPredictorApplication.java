@@ -32,8 +32,7 @@ public class ApartmentPredictorApplication implements CommandLineRunner {
 				"yes",        // mainroad
 				"no",         // guestroom
 				"no",         // basement
-				"no",         // hotwater
-				"yes",        // heating
+				"no",         // hotwater heating
 				"yes",        // airconditioning
 				2,            // parking
 				"yes",        // prefarea
@@ -52,8 +51,7 @@ public class ApartmentPredictorApplication implements CommandLineRunner {
 				"yes",        // mainroad
 				"yes",        // guestroom
 				"no",         // basement
-				"yes",        // hotwater
-				"no",         // heating
+				"yes",        // hotwater (heating)
 				"yes",        // airconditioning
 				1,            // parking
 				"no",         // prefarea
@@ -69,8 +67,7 @@ public class ApartmentPredictorApplication implements CommandLineRunner {
 				"no",         // mainroad
 				"no",         // guestroom
 				"yes",        // basement
-				"yes",        // hotwater
-				"no",         // heating
+				"yes",        // hotwater (heating)
 				"no",         // airconditioning
 				0,            // parking
 				"yes",        // prefarea
@@ -113,8 +110,7 @@ public class ApartmentPredictorApplication implements CommandLineRunner {
 		System.out.println("  Main Road Access: " + apartment.getMainroad());
 		System.out.println("  Guest Room: " + apartment.getGuestroom());
 		System.out.println("  Basement: " + apartment.getBasement());
-		System.out.println("  Hot Water: " + apartment.getHotwater());
-		System.out.println("  Heating: " + apartment.getHeating());
+		System.out.println("  Hot Water Hiting: " + apartment.getHotwaterheating());
 		System.out.println("  Air Conditioning: " + apartment.getAirconditioning());
 		System.out.println("  Parking Spaces: " + apartment.getParking());
 		System.out.println("  Preferred Area: " + apartment.getPrefarea());
