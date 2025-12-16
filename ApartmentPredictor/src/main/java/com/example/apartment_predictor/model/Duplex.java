@@ -3,21 +3,17 @@ package com.example.apartment_predictor.model;
 import java.util.List;
 import java.util.UUID;
 
-public class Duplex extends Apartment {
+public class Duplex extends SingleFamilyHome {
 
     private String balcony;
     private String elevator;
     private boolean hasSeparateUtilities;
 
 
-    public Duplex() {
-        this.id = UUID.randomUUID().toString();
-    }
+    public Duplex() { }
 
-    public Duplex(double area, int locationRating, String address, int numberOfBedrooms, int numberOfBathrooms, boolean hasGarden, Long price, Integer bedrooms, Integer bathrooms, Integer stories, String mainroad, String guestroom, String basement, String hotwaterheating, String airconditioning, Integer parking, String prefarea, boolean hasBalcony, String furnishingstatus, int floorLevel, List<Review> reviews, String balcony, String elevator, boolean hasSeparateUtilities) {
-        super(area, locationRating, address, numberOfBedrooms, numberOfBathrooms, hasGarden, price, bedrooms, bathrooms, stories, mainroad, guestroom, basement, hotwaterheating, airconditioning, parking, prefarea, hasBalcony, furnishingstatus, floorLevel, reviews);
-        this.balcony = balcony;
-        this.elevator = elevator;
+    public Duplex(double area, int locationRating, String address, int numberOfBedrooms, int numberOfBathrooms, boolean hasGarden, double lotSize, boolean hasGarage, boolean hasPool, boolean hasSeparateUtilities) {
+        super(area, locationRating, address, numberOfBedrooms, numberOfBathrooms, hasGarden, lotSize, hasGarage, hasPool);
         this.hasSeparateUtilities = hasSeparateUtilities;
     }
 
@@ -48,7 +44,7 @@ public class Duplex extends Apartment {
     @Override
     public String toString() {
         return "Duplex{" +
-                "id='" + id + '\'' +
+                //"id='" + id + '\'' +
                 ", balcony='" + balcony + '\'' +
                 ", elevator='" + elevator + '\'' +
 

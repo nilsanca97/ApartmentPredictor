@@ -11,11 +11,8 @@ public class House extends SingleFamilyHome {
 
     public House() { }
 
-    public House(double area, int locationRating, String address, int numberOfBedrooms, int numberOfBathrooms, boolean hasGarden, double lotSize, boolean hasGarage, boolean hasPool, int garageQty, String roofType, String garden, boolean hasBasement) {
+    public House(double area, int locationRating, String address, int numberOfBedrooms, int numberOfBathrooms, boolean hasGarden, double lotSize, boolean hasGarage, boolean hasPool, boolean hasBasement) {
         super(area, locationRating, address, numberOfBedrooms, numberOfBathrooms, hasGarden, lotSize, hasGarage, hasPool);
-        this.garageQty = garageQty;
-        this.roofType = roofType;
-        this.garden = garden;
         this.hasBasement = hasBasement;
     }
 
