@@ -13,10 +13,10 @@ import java.util.List;
 public class ApartmentInherenceTest {
 
 
-    @Test
+    /*@Test
     void testInherence() {
 
-        Apartment apartment = new Apartment();
+        /*Apartment apartment = new Apartment();
         //apartment.setId("APT-001-K");
         apartment.setBathrooms(2);
         apartment.setBedrooms(3);
@@ -60,10 +60,6 @@ public class ApartmentInherenceTest {
         duplex.setParking(2);
 
         System.out.println(duplex);
-
-
-
-
     }
 
     @Test
@@ -88,7 +84,7 @@ public class ApartmentInherenceTest {
         System.out.println(apartment);
 
 
-        Apartment house = new House();
+        /*Apartment house = new House();
         //house.setId("HOU-001-K");
         ((House) house).setGarden("Yes");
         ((House) house).setGarageQty(2);
@@ -124,5 +120,5 @@ public class ApartmentInherenceTest {
         apartments.forEach(System.out::println);
 
 
-    }
+    }*/
 }

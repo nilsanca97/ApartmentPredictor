@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class Apartment {
+public class Apartment extends ResidentialProperty {
 
     @Id
     protected String id;
     private Long price;
-    private Integer area;
+    //private Integer area;
     private Integer bedrooms;
     private Integer bathrooms;
     private Integer stories;
@@ -25,6 +25,9 @@ public class Apartment {
     private String prefarea;
     private String furnishingstatus;
 
+    private int floorLevel;
+    private boolean hasBalcony;
+
     @OneToMany(
             mappedBy = "apartment",
             cascade = CascadeType.ALL,
@@ -36,14 +39,9 @@ public class Apartment {
         this.id = UUID.randomUUID().toString();
     }
 
-    // Constructor with all fields
-    public Apartment(Long price, Integer area, Integer bedrooms, Integer bathrooms, 
-                    Integer stories, String mainroad, String guestroom, String basement,
-                    String hotwaterheating, String airconditioning,
-                    Integer parking, String prefarea, String furnishingstatus) {
-        this.id = UUID.randomUUID().toString();
+    public Apartment(double area, int locationRating, String address, int numberOfBedrooms, int numberOfBathrooms, boolean hasGarden, Long price, Integer bedrooms, Integer bathrooms, Integer stories, String mainroad, String guestroom, String basement, String hotwaterheating, String airconditioning, Integer parking, String prefarea, boolean hasBalcony, String furnishingstatus, int floorLevel, List<Review> reviews) {
+        super(area, locationRating, address, numberOfBedrooms, numberOfBathrooms, hasGarden);
         this.price = price;
-        this.area = area;
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
         this.stories = stories;
@@ -54,7 +52,10 @@ public class Apartment {
         this.airconditioning = airconditioning;
         this.parking = parking;
         this.prefarea = prefarea;
+        this.hasBalcony = hasBalcony;
         this.furnishingstatus = furnishingstatus;
+        this.floorLevel = floorLevel;
+        this.reviews = reviews;
     }
 
     // helpers
@@ -79,13 +80,13 @@ public class Apartment {
         this.price = price;
     }
 
-    public Integer getArea() {
+    /* public Integer getArea() {
         return area;
     }
 
     public void setArea(Integer area) {
         this.area = area;
-    }
+    }*/
 
     public Integer getBedrooms() {
         return bedrooms;
@@ -191,6 +192,22 @@ public class Apartment {
         this.reviews = reviews;
     }
 
+    public int getFloorLevel() {
+        return floorLevel;
+    }
+
+    public void setFloorLevel(int floorLevel) {
+        this.floorLevel = floorLevel;
+    }
+
+    public boolean isHasBalcony() {
+        return hasBalcony;
+    }
+
+    public void setHasBalcony(boolean hasBalcony) {
+        this.hasBalcony = hasBalcony;
+    }
+
     @Override
     public String toString() {
         return "Apartment{" +
@@ -211,4 +228,6 @@ public class Apartment {
                 ", reviews='" + reviews.size() + '\'' +
                 '}';
     }
+
+    // inherits ResidentialProperty method "isSuitableForFamily"
 }

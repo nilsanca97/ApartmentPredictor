@@ -2,21 +2,21 @@ package com.example.apartment_predictor.model;
 
 import java.util.UUID;
 
-public class House extends Apartment {
+public class House extends SingleFamilyHome {
 
     private int garageQty;
     private String roofType;
     private String garden;
+    private boolean hasBasement;
 
-    public House() {
-        this.id = UUID.randomUUID().toString();
-    }
+    public House() { }
 
-    public House(int garageQty, String roofType, String garden) {
-        this.id = UUID.randomUUID().toString();
+    public House(double area, int locationRating, String address, int numberOfBedrooms, int numberOfBathrooms, boolean hasGarden, double lotSize, boolean hasGarage, boolean hasPool, int garageQty, String roofType, String garden, boolean hasBasement) {
+        super(area, locationRating, address, numberOfBedrooms, numberOfBathrooms, hasGarden, lotSize, hasGarage, hasPool);
         this.garageQty = garageQty;
         this.roofType = roofType;
         this.garden = garden;
+        this.hasBasement = hasBasement;
     }
 
     public int getGarageQty() {
@@ -43,13 +43,33 @@ public class House extends Apartment {
         this.garden = garden;
     }
 
+    public boolean isHasBasement() {
+        return hasBasement;
+    }
+
+    public void setHasBasement(boolean hasBasement) {
+        this.hasBasement = hasBasement;
+    }
+
     @Override
     public String toString() {
         return "House{" +
-                "id=" + id +
-                ", garageQty=" + garageQty +
+                "garageQty=" + garageQty +
                 ", roofType='" + roofType + '\'' +
                 ", garden='" + garden + '\'' +
-                '}';
+                ", hasBasement=" + hasBasement +
+                "} " + super.toString();
+    }
+
+    // completely overrides ResidentialProperty method by modifying all conditions
+    @Override
+    public boolean isSuitableForFamily(int familySize) {
+        int rooms = numberOfBedrooms;
+        if (hasBasement) {
+            rooms++;
+        }
+        if (rooms >= familySize && numberOfBathrooms *2 >= familySize) {
+            return true;
+        } else return false;
     }
 }
