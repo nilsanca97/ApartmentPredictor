@@ -16,7 +16,8 @@ public class Review {
     private String content;
     private int rating;
     private LocalDate reviewDate;
-    //private String apartmentId;
+    // add apartment to Review class (because in UML Apartment-Review are related// have relationship).
+    private Apartment apartment;
     //private String reviewerId;
 
     //2. CONSTRUCTOR
@@ -90,6 +91,10 @@ public class Review {
     public void setReviewDate(LocalDate reviewDate) {
         this.reviewDate = reviewDate;
     }
+
+    public Apartment getApartment() { return apartment; }
+
+    public void setApartment(Apartment apartment) { this.apartment = apartment; }
 
     // 4. method toString
     @Override
