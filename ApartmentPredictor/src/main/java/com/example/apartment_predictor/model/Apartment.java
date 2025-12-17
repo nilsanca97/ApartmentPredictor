@@ -1,8 +1,6 @@
 package com.example.apartment_predictor.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +25,7 @@ public class Apartment {
     private String prefarea;
     private String furnishingstatus;
     // add reviews to Apartment (because in UML Apartment-Review are related// have relationship).
-    @OneToMany (mappedBy = "apartment")
+    @OneToMany (mappedBy = "apartment",  cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     private List<Review> reviews = new ArrayList<>();
 
     // Default constructor (empty)
