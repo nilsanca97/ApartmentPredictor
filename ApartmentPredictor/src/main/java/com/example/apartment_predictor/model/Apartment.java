@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,8 +27,8 @@ public class Apartment {
     private String prefarea;
     private String furnishingstatus;
     // add reviews to Apartment (because in UML Apartment-Review are related// have relationship).
-    @OneToMany
-    private List<Review> reviews;
+    @OneToMany (mappedBy = "apartment")
+    private List<Review> reviews = new ArrayList<>();
 
     // Default constructor (empty)
     public Apartment() {
