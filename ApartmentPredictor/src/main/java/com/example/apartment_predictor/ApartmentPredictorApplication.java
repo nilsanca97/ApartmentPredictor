@@ -31,7 +31,8 @@ public class ApartmentPredictorApplication implements CommandLineRunner {
 
 	}
 
-    public void testApartmentsInsert() {
+    // apartment object with old attributes
+    /*public void testApartmentsInsert() {
         System.out.println("Creating apartment objects and saving to db...");
         // Create apartment objects based on your sample data
         Apartment apartment1 = new Apartment(
@@ -107,7 +108,7 @@ public class ApartmentPredictorApplication implements CommandLineRunner {
         }
 
         //apartmentRepository.findAll().forEach(System.out::println);
-    }
+    } */
 
     public void testReviewsInsert() {
         System.out.println("Creating review objects and saving to db ...");
