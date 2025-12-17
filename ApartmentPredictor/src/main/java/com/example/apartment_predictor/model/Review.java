@@ -2,6 +2,7 @@ package com.example.apartment_predictor.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -17,6 +18,7 @@ public class Review {
     private int rating;
     private LocalDate reviewDate;
     // add apartment to Review class (because in UML Apartment-Review are related// have relationship).
+    @ManyToOne
     private Apartment apartment;
     //private String reviewerId;
 
