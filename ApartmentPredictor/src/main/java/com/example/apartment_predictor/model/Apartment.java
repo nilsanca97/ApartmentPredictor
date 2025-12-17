@@ -3,6 +3,7 @@ package com.example.apartment_predictor.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,6 +24,8 @@ public class Apartment {
     private Integer parking;
     private String prefarea;
     private String furnishingstatus;
+    // add reviews to Apartment (because in UML Apartment-Review are related// have relationship).
+    private List<Review> reviews;
 
     // Default constructor (empty)
     public Apartment() {
@@ -54,9 +57,14 @@ public class Apartment {
         this.furnishingstatus = furnishingstatus;
     }
 
-
-
     // Getters and Setters
+    public String getId() {
+        return id;
+    }
+
+    /*public void setId(String id) {
+        this.id = id;
+    }*/
     public Long getPrice() {
         return price;
     }
@@ -161,13 +169,13 @@ public class Apartment {
         this.furnishingstatus = furnishingstatus;
     }
 
-    public String getId() {
-        return id;
+    public List<Review> getReviews() {
+        return reviews;
     }
 
-    /*public void setId(String id) {
-        this.id = id;
-    }*/
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
 
     @Override
     public String toString() {
