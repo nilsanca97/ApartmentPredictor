@@ -13,7 +13,7 @@ public class ApartmentTests {
     ApartmentRepository apartmentRepository;
 
     @Test
-    void testApartmentInsert() {
+    void testCreateApartment() {
         // Create apartment objects based on your sample data
         Apartment apartment1 = new Apartment(
                 13300000L,    // price
@@ -32,21 +32,20 @@ public class ApartmentTests {
         );
 
         Apartment apartment2 = new Apartment(8500000L, 5200, 3, 2, 2, "yes", "yes", "no", "yes", "yes", 1, "no", "semi-furnished");
-        Apartment apartment3 = new Apartment(6200000L, 3800, 2, 1, 1, "no", "no", "yes", "yes", "no", 0, "yes", "unfurnished");
+
+        Apartment apartment3 = new Apartment();
+        apartment3.setPrice(150000L);
+        apartment3.setPrice(200000L);
+        apartment3.setArea(50);
+        apartment3.setBedrooms(3);
+        apartment3.setAirconditioning("yes");
 
         Apartment apartment4 = new Apartment();
-        apartment4.setPrice(150000L);
-        apartment4.setPrice(200000L);
-        apartment4.setArea(50);
-        apartment4.setBedrooms(3);
+        apartment4.setPrice(300000L);
+        apartment4.setArea(70);
+        apartment4.setBedrooms(5);
         apartment4.setAirconditioning("yes");
-
-        Apartment apartment5 = new Apartment();
-        apartment5.setPrice(300000L);
-        apartment5.setArea(70);
-        apartment5.setBedrooms(5);
-        apartment5.setAirconditioning("yes");
-        apartment5.setBathrooms(2);
+        apartment4.setBathrooms(2);
 
         // Display the created apartments
         System.out.println("\n=== Created Apartments ===");
@@ -58,7 +57,6 @@ public class ApartmentTests {
         apartmentRepository.save(apartment2);
         apartmentRepository.save(apartment3);
         apartmentRepository.save(apartment4);
-        apartmentRepository.save(apartment5);
 
         int index = 0;
         System.out.println("\n=== Apartments in the Database ===");
@@ -71,6 +69,5 @@ public class ApartmentTests {
         //apartmentRepository.findAll().forEach(System.out::println);
 
     }
-
 
 }
