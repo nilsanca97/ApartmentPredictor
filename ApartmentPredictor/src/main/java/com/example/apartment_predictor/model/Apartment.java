@@ -24,6 +24,12 @@ public class Apartment {
     private Integer parking;
     private String prefarea;
     private String furnishingstatus;
+
+    // Implement @ElementCollection for Reviews in Apartment
+    @ElementCollection
+    @CollectionTable (name = "APARTMENT_REVIEWS", joinColumns = @JoinColumn(name = "APARTMENT_FK"))
+    @Column (name = "REVIEWS")
+
     // add reviews to Apartment (because in UML Apartment-Review are related// have relationship).
     @OneToMany (mappedBy = "apartment",  cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     private List<Review> reviews = new ArrayList<>();
@@ -194,6 +200,7 @@ public class Apartment {
                 ", parking=" + parking +
                 ", prefarea='" + prefarea + '\'' +
                 ", furnishingstatus='" + furnishingstatus + '\'' +
+                //", reviews= " + reviews.size() + '\'' +
                 '}';
     }
 }
