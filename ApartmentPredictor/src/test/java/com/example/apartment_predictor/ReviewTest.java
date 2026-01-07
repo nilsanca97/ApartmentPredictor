@@ -20,7 +20,7 @@ public class ReviewTest {
     ApartmentRepository apartmentRepository;
 
     @Test
-    void testReviewInsert() {
+    void testCreateReview() {
         // Create review objects based on your sample data
         Review review1 = new Review(
                 "Comfortable stay in a great location",  // title
@@ -34,31 +34,28 @@ public class ReviewTest {
                 5, //rating
                 LocalDate.of(2024, 8, 20)
         );
-        Review review3 = new Review(
-                "Great value and lovely host", // title
-                "The apartment was spotless and exactly as described. Communication with the host was smooth and friendly throughout the stay.", // content
-                5, //rating
-                LocalDate.of(2025, 12, 16)
-        );
-//        Review review4 = new Review();
-//        review4.setTitle("Fantastic house for enjoy a holidays");
-//        review4.setApartment(apartment1);
 
-//        Review review5 = new Review();
-//        review5.setTitle("Perfect and suitable family flat in Barcelona");
-//        review5.setApartment(apartmentRepository.);
+        Review review3 = new Review();
+        review3.setTitle("Great value and lovely host");
+        review3.setContent("The apartment was spotless and exactly as described. Communication with the host was smooth and friendly throughout the stay.");
+        review3.setRating(5);
+        review3.setReviewDate(LocalDate.of(2025, 12, 16));
 
-        // Display the created apartments
+        Review review4 = new Review();
+        review4.setTitle("Lovely house in the middle of Barcelona town");
+
+        // Display the created reviews
         System.out.println("\n=== Created Reviews ===");
         System.out.println("Review 1: " + review1);
         System.out.println("Review 2: " + review2);
         System.out.println("Review 3: " + review3);
-        //System.out.println("Review 4 with apartment: " + review4);
+        System.out.println("Review 4: " + review4);
 
         reviewRepository.save(review1);
         reviewRepository.save(review2);
         reviewRepository.save(review3);
-        //reviewRepository.save(review4);
+        reviewRepository.save(review4);
+
         int index = 0;
         System.out.println("\n=== Reviews in the Database ===");
         for (Review review : reviewRepository.findAll()){
