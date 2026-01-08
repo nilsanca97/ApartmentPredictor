@@ -19,17 +19,27 @@ public class ApartmentRestController {
     @GetMapping("/getAll")
     public Iterable<Apartment> getAllApartments(){
 
-
-
         return apartmentService.findAll();
     }
-
 
     @GetMapping("/getById")
     public Apartment getApartmentById(@RequestParam String id){
 
-
         return apartmentService.findApartmentById(id);
+    }
 
+    @PostMapping("/create")
+    public Apartment createApartment(@RequestParam Apartment apartment) {
+        return apartmentService.createApartment(apartment);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteApartment(@RequestParam Apartment apartment) {
+        apartmentService.deleteApartment(apartment);
+    }
+
+    @DeleteMapping("/deleteById")
+    public void deleteApartmentById(@RequestParam String id) {
+        apartmentService.deleteById(id);
     }
 }
