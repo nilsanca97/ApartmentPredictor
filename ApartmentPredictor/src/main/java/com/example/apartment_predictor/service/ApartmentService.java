@@ -17,17 +17,43 @@ public class ApartmentService {
     // implement CRUD operations: read
     public Iterable<Apartment> findAll() {
 
-
-
         return apartmentRepository.findAll();
     }
 
 
-    public void createApartment(){}
+    public Apartment createApartment(Apartment apartment){
+        return apartmentRepository.save(apartment);
+    }
 
-    public void updateApartment (){}
+    /* public Apartment updateApartment(String id, Apartment apartment) {
+        Apartment ap = apartmentRepository.findById(id).orElse(null);
 
-    public void deleteApartment (){}
+        if (ap != null) {
+            ap.setBedrooms(apartment.getBedrooms());
+            ap.setArea(apartment.getArea());
+            return apartmentRepository.save(ap);
+        }
+        return null;
+    }*/
+    public Apartment updateApartment (String id, Apartment apartment){
+
+        Optional<Apartment> apartmentOptional = apartmentRepository.findById(id);
+        if (apartmentOptional.isPresent()) {
+            Apartment ap = apartmentOptional.get();
+            ap.setPrice(apartment.getPrice());
+            ap.setBedrooms(apartment.getBedrooms());
+            ap.setArea(apartment.getArea());
+            return apartmentRepository.save(ap);
+        }
+        return null;
+    }
+
+    public void deleteApartment (Apartment apartment){
+        apartmentRepository.delete(apartment);
+    }
+    public void deleteById (String id) {
+        apartmentRepository.deleteById(id);
+    }
 
     public Apartment findApartmentById (String id){
 
@@ -35,12 +61,6 @@ public class ApartmentService {
         if ( found.isPresent()) return found.get() ;
         else return null;
 
-
     }
-
-    public void findApartmentByPrice (){}
-
-
-
 
 }
