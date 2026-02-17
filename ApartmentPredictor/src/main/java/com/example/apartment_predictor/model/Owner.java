@@ -2,61 +2,33 @@ package com.example.apartment_predictor.model;
 
 import java.time.LocalDate;
 
-public class Owner {
+public class Owner extends Person{
 
-    private  String id;
-    private String name;
-    private String email;
-    private int age;
     private boolean isActive;
     private boolean isBusiness;
     private String idLegalOwner;
     private LocalDate registrationDate;
     private int qtyDaysAsOwner;
 
+    //empty Constructor
     public Owner(){}
 
-    public Owner(String name, String email, int age, boolean isActive, boolean isBusiness, String idLegalOwner, LocalDate registrationDate, int qtyDaysAsOwner) {
-        this.name = name;
-        this.email = email;
-        this.age = age;
+    // Constructor with all fields (including person attributes which inherence to owner class and owner attributes).
+    public Owner(String name, String surname, String email, String age, boolean isActive, String idLegalOwner, boolean isBusiness, LocalDate registrationDate, int qtyDaysAsOwner) {
+        super(name, surname, email, age);
         this.isActive = isActive;
-        this.isBusiness = isBusiness;
         this.idLegalOwner = idLegalOwner;
+        this.isBusiness = isBusiness;
         this.registrationDate = registrationDate;
         this.qtyDaysAsOwner = qtyDaysAsOwner;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
+    //Constructor (only with owner attributes)
+    public Owner(boolean isActive, String idLegalOwner, boolean isBusiness, LocalDate registrationDate, int qtyDaysAsOwner) {
+        this.isActive = isActive;
+        this.idLegalOwner = idLegalOwner;
+        this.isBusiness = isBusiness;
+        this.registrationDate = registrationDate;
+        this.qtyDaysAsOwner = qtyDaysAsOwner;
     }
 
     public boolean isActive() {
@@ -102,15 +74,11 @@ public class Owner {
     @Override
     public String toString() {
         return "Owner{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", age=" + age +
-                ", isActive=" + isActive +
+                "isActive=" + isActive +
                 ", isBusiness=" + isBusiness +
                 ", idLegalOwner='" + idLegalOwner + '\'' +
                 ", registrationDate=" + registrationDate +
                 ", qtyDaysAsOwner=" + qtyDaysAsOwner +
-                '}';
+                "} " + super.toString();
     }
 }
