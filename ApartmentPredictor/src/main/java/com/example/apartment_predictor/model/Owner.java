@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Owner extends Person{
 
-    private boolean isActive;
     private boolean isBusiness;
     private String idLegalOwner;
     private LocalDate registrationDate;
@@ -14,31 +13,15 @@ public class Owner extends Person{
     public Owner(){}
 
     // Constructor with all fields (including person attributes which inherence to owner class and owner attributes).
-    public Owner(String name, String surname, String email, String age, boolean isActive, String idLegalOwner, boolean isBusiness, LocalDate registrationDate, int qtyDaysAsOwner) {
-        super(name, surname, email, age);
-        this.isActive = isActive;
-        this.idLegalOwner = idLegalOwner;
+     public Owner(String fullName, LocalDate birthDate, String email, String password, boolean isActive, boolean isActive1, boolean isBusiness, LocalDate registrationDate, String idLegalOwner, int qtyDaysAsOwner) {
+        super(fullName, birthDate, email, password, isActive);
         this.isBusiness = isBusiness;
         this.registrationDate = registrationDate;
-        this.qtyDaysAsOwner = qtyDaysAsOwner;
-    }
-    //Constructor (only with owner attributes)
-    public Owner(boolean isActive, String idLegalOwner, boolean isBusiness, LocalDate registrationDate, int qtyDaysAsOwner) {
-        this.isActive = isActive;
         this.idLegalOwner = idLegalOwner;
-        this.isBusiness = isBusiness;
-        this.registrationDate = registrationDate;
         this.qtyDaysAsOwner = qtyDaysAsOwner;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
+    // Getters & setters
     public boolean isBusiness() {
         return isBusiness;
     }
@@ -71,11 +54,11 @@ public class Owner extends Person{
         this.qtyDaysAsOwner = qtyDaysAsOwner;
     }
 
+    // toString method of Owner model class
     @Override
     public String toString() {
         return "Owner{" +
-                "isActive=" + isActive +
-                ", isBusiness=" + isBusiness +
+                "isBusiness=" + isBusiness +
                 ", idLegalOwner='" + idLegalOwner + '\'' +
                 ", registrationDate=" + registrationDate +
                 ", qtyDaysAsOwner=" + qtyDaysAsOwner +
