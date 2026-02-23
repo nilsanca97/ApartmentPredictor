@@ -39,4 +39,5 @@ public class ApartmentTests {
         System.out.println(apartment2);
 
     }
+
 }

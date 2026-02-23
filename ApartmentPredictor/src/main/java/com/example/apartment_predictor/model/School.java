@@ -20,6 +20,9 @@ public class School {
     private int rating;
     private boolean isPublic;
 
+    //Relation @ManyToMany with apartments. Unidirectional (so no reference to Apartments in School class --> inverse side).
+    //private List<Apartment> apartments = new ArrayList<>();
+
     // Default constructor
     public School() {
         this.id = GenerateUUID.generateFourDigitUuid();
@@ -33,9 +36,6 @@ public class School {
         this.rating = rating;
         this.isPublic = isPublic;
     }
-
-    //@ManyToMany
-    //private List<Apartment> apartments = new ArrayList<>();
 
     //getters and setters and toString
     public String getId() {

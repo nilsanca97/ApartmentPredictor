@@ -25,9 +25,10 @@ public class Apartment {
     private String prefarea;
     private String furnishingstatus;
 
-    @OneToMany(mappedBy = "apartment",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<Review> reviews = new ArrayList<>();
+    //@OneToMany(mappedBy = "apartment",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    //private List<Review> reviews = new ArrayList<>();
 
+    // relation Apartment -- School (n:m). Apartment is owner side unidirectional.
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(
             name = "APARTMENT_SCHOOL_JOIN_TABLE",
@@ -68,9 +69,9 @@ public class Apartment {
         return basePrice * (1 + (area * 0.04));
     }
 
-    // helpers
+    // helpers methods: addReview & removeReview
 
-    public void addReview(Review review) {
+    /*public void addReview(Review review) {
         reviews.add(review);
         review.setApartment(this);
     }
@@ -78,10 +79,16 @@ public class Apartment {
     public void removeReview(Review review) {
         reviews.remove(review);
         review.setApartment(null);
-    }
-
+    }*/
 
     // Getters and Setters
+    public String getId() {
+        return id;
+    }
+    /*public void setId(String id) {
+        this.id = id;
+    }*/
+
     public Long getPrice() {
         return price;
     }
@@ -186,22 +193,6 @@ public class Apartment {
         this.furnishingstatus = furnishingstatus;
     }
 
-    public String getId() {
-        return id;
-    }
-
-   /* public void setId(String id) {
-        this.id = id;
-    }*/
-
-   public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
-    }
-
     public List<School> getSchools() {
         return schools;
     }
@@ -210,18 +201,11 @@ public class Apartment {
         this.schools = schools;
     }
 
-    public void addSchool(School school) {
-        this.schools.add(school);
-    }
-
-    public void addSchools(List<School> schools ){
-       this.schools.addAll(schools);
-    }
-
+    // toString method Apartment (with arrayList of schools & reviews).
     @Override
     public String toString() {
         return "Apartment{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", price=" + price +
                 ", area=" + area +
                 ", bedrooms=" + bedrooms +
@@ -230,12 +214,12 @@ public class Apartment {
                 ", mainroad='" + mainroad + '\'' +
                 ", guestroom='" + guestroom + '\'' +
                 ", basement='" + basement + '\'' +
-                ", hotwater='" + hotwaterheating + '\'' +
+                ", hotwaterheating='" + hotwaterheating + '\'' +
                 ", airconditioning='" + airconditioning + '\'' +
                 ", parking=" + parking +
                 ", prefarea='" + prefarea + '\'' +
                 ", furnishingstatus='" + furnishingstatus + '\'' +
-                ", reviews='" + reviews.size() + '\'' +
+                ", schools=" + schools +
                 '}';
     }
 }
