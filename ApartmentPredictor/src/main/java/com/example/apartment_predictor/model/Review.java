@@ -1,5 +1,6 @@
 package com.example.apartment_predictor.model;
 
+import com.example.apartment_predictor.utils.GenerateUUID;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import com.example.apartment_predictor.model.Apartment;
@@ -23,11 +24,11 @@ public class Review {
 
 
     public Review() {
-        this.id = UUID.randomUUID().toString();
+        this.id = GenerateUUID.generateFourDigitUuid();
     }
 
     public Review(String title, String content, Integer rating) {
-        this.id = UUID.randomUUID().toString();
+        this.id = GenerateUUID.generateFourDigitUuid();
         this.title = title;
         this.content = content;
         this.rating = rating;

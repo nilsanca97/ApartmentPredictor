@@ -1,5 +1,6 @@
 package com.example.apartment_predictor.model;
 
+import com.example.apartment_predictor.utils.GenerateUUID;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
@@ -21,11 +22,11 @@ public class School {
 
     // Default constructor
     public School() {
-        this.id = UUID.randomUUID().toString();
+        this.id = GenerateUUID.generateFourDigitUuid();
     }
 
     public School(String name, String type, String location, int rating, boolean isPublic) {
-        this.id = UUID.randomUUID().toString();
+        this.id = GenerateUUID.generateFourDigitUuid();
         this.name = name;
         this.type = type;
         this.location = location;

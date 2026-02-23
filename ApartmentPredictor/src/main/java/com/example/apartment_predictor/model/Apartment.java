@@ -1,5 +1,6 @@
 package com.example.apartment_predictor.model;
 
+import com.example.apartment_predictor.utils.GenerateUUID;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,7 @@ public class Apartment {
 
     // Default constructor
     public Apartment() {
-        this.id = UUID.randomUUID().toString();
+        this.id = GenerateUUID.generateFourDigitUuid();
     }
 
     // Constructor with all fields
@@ -45,7 +46,7 @@ public class Apartment {
                     Integer stories, String mainroad, String guestroom, String basement,
                     String hotwaterheating, String airconditioning,
                     Integer parking, String prefarea, String furnishingstatus) {
-        this.id = UUID.randomUUID().toString();
+        this.id = GenerateUUID.generateFourDigitUuid();
         this.price = price;
         this.area = area;
         this.bedrooms = bedrooms;
