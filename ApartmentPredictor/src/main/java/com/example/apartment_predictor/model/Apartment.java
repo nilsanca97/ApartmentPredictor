@@ -63,23 +63,10 @@ public class Apartment {
         this.furnishingstatus = furnishingstatus;
     }
 
-
     public double calculatePrice() {
         double basePrice = area * 120 + (bedrooms * 8000);
         return basePrice * (1 + (area * 0.04));
     }
-
-    // helpers methods: addReview & removeReview
-
-    /*public void addReview(Review review) {
-        reviews.add(review);
-        review.setApartment(this);
-    }
-
-    public void removeReview(Review review) {
-        reviews.remove(review);
-        review.setApartment(null);
-    }*/
 
     // Getters and Setters
     public String getId() {
@@ -222,4 +209,22 @@ public class Apartment {
                 ", schools=" + schools +
                 '}';
     }
+
+    // helpers methods: addReview & removeReview
+    public void addSchool(School school) {
+        this.schools.add(school);
+    }
+
+    public void addSchools(List<School> schools) {
+        this.schools.addAll(schools);
+    }
+    /*public void addReview(Review review) {
+        reviews.add(review);
+        review.setApartment(this);
+    }
+
+    public void removeReview(Review review) {
+        reviews.remove(review);
+        review.setApartment(null);
+    }*/
 }

@@ -54,14 +54,16 @@ public class ApartmentService {
         if (apartment.getPrefarea() != null) existing.setPrefarea(apartment.getPrefarea());
         if (apartment.getFurnishingstatus() != null) existing.setFurnishingstatus(apartment.getFurnishingstatus());
 
-        if (apartment.getReviews() != null) {
+        /*if (apartment
+
+                .getReviews() != null) {
             existing.setReviews(apartment.getReviews());
             for (Review review : existing.getReviews()) {
                 if (review != null) {
                     review.setApartment(existing);
                 }
             }
-        }
+        }*/
 
         return apartmentRepository.save(existing);
     }
