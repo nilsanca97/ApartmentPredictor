@@ -9,9 +9,10 @@ import java.time.LocalDate;
 @Table(name= "Reviewer_Person_Table")
 public class Reviewer extends Person {
 
-    private String reviewerType;
-    private int experienceYears;
-    private double averageRating;
+    private boolean isBusiness;
+    private String xAccount;
+    private String webURL;
+    private int qtyReviews;
 
     //private List<Review> reviews;
 
@@ -19,34 +20,54 @@ public class Reviewer extends Person {
     public Reviewer() {}
 
     // Constructor with all fields (including person attributes which inherence to reviewer class).
-    public Reviewer(String fullName, LocalDate birthDate, String email, String password, boolean isActive, String ReviewerType, int experienceYears, double averageRating) {
+    public Reviewer(String fullName, LocalDate birthDate, String email, String password, boolean isActive, boolean isBusiness, String xAccount, String webURL, int qtyReviews) {
         super(fullName, birthDate, email, password, isActive);
-        this.reviewerType = reviewerType;
-        this.experienceYears = experienceYears;
-        this.averageRating = averageRating;
+        this.isBusiness = isBusiness;
+        this.xAccount = xAccount;
+        this.webURL = webURL;
+        this.qtyReviews = qtyReviews;
     }
-
     // Getters & setters
-    public String getReviewerType() {
-        return reviewerType;
+    public boolean isBusiness() {
+        return isBusiness;
     }
 
-    public int getExperienceYears() {
-        return experienceYears;
+    public void setisBusiness(boolean business) {
+        isBusiness = business;
     }
 
-    public double getAverageRating() {
-        return averageRating;
+    public String getxAccount() {
+        return xAccount;
+    }
+
+    public void setxAccount(String xAccount) {
+        this.xAccount = xAccount;
+    }
+
+    public String getWebURL() {
+        return webURL;
+    }
+
+    public void setWebURL(String webURL) {
+        this.webURL = webURL;
+    }
+
+    public int getQtyReviews() {
+        return qtyReviews;
+    }
+
+    public void setQtyReviews(int qtyReviews) {
+        this.qtyReviews = qtyReviews;
     }
 
     // toString method of Reviewer model class
-
     @Override
     public String toString() {
         return "Reviewer{" +
-                "reviewerType='" + reviewerType + '\'' +
-                ", experienceYears=" + experienceYears +
-                ", averageRating=" + averageRating +
+                "isBusiness=" + isBusiness +
+                ", xAccount='" + xAccount + '\'' +
+                ", webURL='" + webURL + '\'' +
+                ", qtyReviews=" + qtyReviews +
                 "} " + super.toString();
     }
 }

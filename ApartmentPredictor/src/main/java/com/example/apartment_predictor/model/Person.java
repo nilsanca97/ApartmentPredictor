@@ -2,9 +2,11 @@ package com.example.apartment_predictor.model;
 
 import com.example.apartment_predictor.utils.GenerateUUID;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 
 import java.time.LocalDate;
 
+@MappedSuperclass
 public class Person {
 
     @Id
