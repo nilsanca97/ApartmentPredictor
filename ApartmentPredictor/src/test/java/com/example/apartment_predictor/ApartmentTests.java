@@ -55,6 +55,7 @@ public class ApartmentTests {
 
         School school3 = new School();
         school3.setId("3");
+        school3.setName("OAK School");
 
         List<School> schools = new ArrayList<>();
         schools.add(school1);
@@ -79,5 +80,36 @@ public class ApartmentTests {
         //apartment.setId(APT-002);
         apartment2.setPrice(59865L);
         apartment2.addSchools(schools);
+        apartmentRepository.save(apartment2);
     }
+
+    @Test
+    void createApartmentWithSchools() {
+        // create Apartment
+        Apartment apartment1 = new Apartment();
+        apartment1.setPrice(87643L);
+        apartment1.setMainroad("C/ Aragó 123");
+
+        // create Schools
+        School school1 = new School();
+        school1.setName("Institut Francisco Goy");
+        school1.setPublic(true);
+        school1.setRating(2);
+
+        School school2= new School();
+        school2.setName("La Salle Horta");
+        school2.setPublic(false);
+        school2.setRating(4);
+
+        // Establish the unidirectional relationship:
+        // (only visibility schools from apartment). But not apartment from School class
+        // school1.setApartment(apartment1) // School --> Apartment
+        // school2.setApartment(apartment1) // School --> Apartment
+        apartment1.getSchools().add(school1); // Apartment --> School
+        apartment1.getSchools().add(school2); // Apartment --> School
+
+        // Save (cascade will save schools automatically
+        apartmentRepository.save(apartment1);
+    }
+
 }
